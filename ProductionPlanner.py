@@ -6,6 +6,7 @@ from PyQt5.QtCore import pyqtSignal, Qt, QMimeData, QByteArray
 from PyQt5.QtGui import QDrag
 import os
 import shutil
+import darkdetect
 
 import design
 import newFileDialog
@@ -581,13 +582,8 @@ class App(QtWidgets.QMainWindow, design.Ui_MainWindow):
 def main():
     if getattr(sys, 'frozen', False):
         path = sys._MEIPASS
-        file = open("testfile.txt","w")
-        file.write(path)
-        file.close()
-        print(path)
-    file2 = open("testfile2.txt","w")
-    file2.write("WHUT?")
-    file2.close()
+    
+    print(darkdetect.theme())
     app = QtWidgets.QApplication(sys.argv)
     window = App()
     

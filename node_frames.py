@@ -294,6 +294,7 @@ class IONodeFrame(QtWidgets.QFrame):
     def paintEvent(self, e):
         qp = QtGui.QPainter()
         qp.begin(self)
+        qp.setRenderHint(0x01)
         qp.setPen(QtGui.QPen(QtGui.QColor(112, 112, 112), 2, Qt.SolidLine))
         qp.setBrush(QtGui.QColor(65, 44, 132))
         polygon = QtGui.QPolygonF()
