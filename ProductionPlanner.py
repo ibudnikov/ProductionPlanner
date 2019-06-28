@@ -4,6 +4,9 @@ from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import pyqtSignal, Qt, QMimeData, QByteArray
 from PyQt5.QtGui import QDrag
+from PyQt5.QtGui import QPalette
+from PyQt5.QtGui import QColor
+from PyQt5.QtGui import QBrush
 import os
 import shutil
 import darkdetect
@@ -55,6 +58,9 @@ class App(QtWidgets.QMainWindow, design.Ui_MainWindow):
     procPath = "Processes"
     iconsPath = "Icons"
     
+    schemasRoot = "Schemas"
+    itemsRoot = "Items"
+    
     newName = ""
     def __init__(self):
         super().__init__()
@@ -62,6 +68,8 @@ class App(QtWidgets.QMainWindow, design.Ui_MainWindow):
         if getattr(sys, 'frozen', False):
             self.currentItemsPath = sys._MEIPASS + "/" + self.currentItemsPath
             self.currentSchemaPath = sys._MEIPASS + "/" + self.currentSchemaPath
+            self.itemsRoot = self.currentItemsPath
+            self.schemasRoot = self.currentSchemaPath
             self.procPath = sys._MEIPASS + "/Processes"
             self.iconsPath = sys._MEIPASS + "/Icons"
         self.itemRoot=items.init(self.currentItemsPath)
@@ -504,7 +512,7 @@ class App(QtWidgets.QMainWindow, design.Ui_MainWindow):
     
     def fillSchemasList(self, path="Schemas"):
         root = False
-        if path == "Schemas":
+        if path == self.schemasRoot:
             root = True
             self.buttonBack.setEnabled(False)
         else: self.buttonBack.setEnabled(True)
@@ -547,7 +555,7 @@ class App(QtWidgets.QMainWindow, design.Ui_MainWindow):
     def fillItemsView(self):
         root = False
         path = self.currentItemsPath
-        if path == "Items":
+        if path == self.itemsRoot:
             root = True
         count = self.itemsView.count()
         for i in range(count):
@@ -583,8 +591,29 @@ def main():
     if getattr(sys, 'frozen', False):
         path = sys._MEIPASS
     
-    print(darkdetect.theme())
     app = QtWidgets.QApplication(sys.argv)
+    theme = darkdetect.theme()
+    if theme=="Dark":
+        dark_palette = QPalette()
+
+        dark_palette.setColor(QPalette.Window, QColor(53, 53, 53))
+        dark_palette.setColor(QPalette.WindowText, Qt.white)
+        dark_palette.setColor(QPalette.Base, QColor(30, 30, 30))
+        dark_palette.setColor(QPalette.AlternateBase, QColor(253, 53, 53))
+        dark_palette.setColor(QPalette.ToolTipBase, Qt.white)
+        dark_palette.setColor(QPalette.ToolTipText, Qt.white)
+        dark_palette.setColor(QPalette.Text, Qt.white)
+        dark_palette.setColor(QPalette.Button, QColor(53, 53, 53))
+        dark_palette.setColor(QPalette.ButtonText, Qt.gray)
+        dark_palette.setColor(QPalette.BrightText, Qt.red)
+        dark_palette.setColor(QPalette.Link, QColor(42, 130, 218))
+        dark_palette.setColor(QPalette.Highlight, QColor(12, 90, 198))
+        dark_palette.setColor(QPalette.HighlightedText, Qt.white)
+        dark_palette.setColor(QPalette.Light, QColor(53, 53, 53))
+
+        app.setPalette(dark_palette)
+
+
     window = App()
     
     window.fillSchemasList(window.currentSchemaPath)

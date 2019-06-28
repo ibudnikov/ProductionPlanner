@@ -528,7 +528,7 @@ class CustomFrame(QtWidgets.QFrame):
                 for proc in complexProcesses:
                     procC = self.procRoot.find(proc)
                     item = self.itemRoot.find(procC.item)
-                    a = self.submenu.addAction(item.name)
+                    a = submenu.addAction(item.name)
                     a.itemId = item.itemId
                     a.id = proc
                     a.triggered.connect(self.menuTriggered)
