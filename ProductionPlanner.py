@@ -231,6 +231,7 @@ class App(QtWidgets.QMainWindow, design.Ui_MainWindow):
         verticalLayout.addWidget(tab.scrollArea)
         
         tab.tableView = QtWidgets.QTableView(tab)
+        tab.tableView.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         tab.tableView.setMaximumSize(QtCore.QSize(16777215, 182))
         tab.tableView.setObjectName("tableView")
         verticalLayout.addWidget(tab.tableView)
