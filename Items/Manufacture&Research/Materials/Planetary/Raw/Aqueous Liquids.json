@@ -1,1 +1,1 @@
-{"name": "Aqueous Liquids", "buy": 1.94, "sell": 1.64, "base": 5.0, "itemId": 2268, "volume": 0.01, "cachingTime": 1561655286.206825, "cachingTimeXML": 1561655289.414464, "inProcess": [500000, 500001, 500002, 500005], "outProcess": [500003, 500004, 500002, 500005, 500049], "isRaw": 1}
+{"name": "Aqueous Liquids", "buy": 1.94, "sell": 1.67, "base": 5.0, "itemId": 2268, "volume": 0.01, "cachingTime": 1561801604.7253873, "cachingTimeXML": 1561655289.414464, "inProcess": [500000, 500001, 500002, 500005], "outProcess": [500003, 500004, 500002, 500005, 500049], "isRaw": 1}

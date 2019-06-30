@@ -1,1 +1,0 @@
-{"items": [{"id": 0, "item": 4247, "quantityIn": 2, "quantityOut": 2}], "processes": [{"id": 50, "process": 500003, "quantity": 2}, {"id": 166, "process": 500000, "quantity": 2}], "planets": [], "connectionsA": [0, 166], "connectionsB": [50, 0]}
