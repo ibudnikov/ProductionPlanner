@@ -39,11 +39,13 @@ version = "0.0.0"
 # Planetary
 
 #frontend:
+# Zoom-out
 # Tab close buttons disappearing problem (wait till PyQt upgrade)
 # Style supporting -- switching icons for themes
-# Redraw of widget with schema without direct method call
-# Items close buttons style
 # ? buttons style
+
+#OS-dependent:
+# fat line blinking in windows
 
 class App(QtWidgets.QMainWindow, design.Ui_MainWindow):
     itemRoot = None
